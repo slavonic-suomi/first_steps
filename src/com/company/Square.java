@@ -1,27 +1,51 @@
 package com.company;
 
 public class Square extends Figure {
-    int size;
-//
-//    public int yPosition;
-//
-//    public void setCustomY(int y) {
-//        yPosition = y;
-//    }
-//
-//    public int getyPosition() {
-////        int superY = super.getyPosition();
-//        return this.yPosition;
-//    }
 
-    int square() {
+    public static void doSmth() {
+        System.out.println("it's static square!");
+    }
+
+    int size;
+
+    public Square(int x, int y, int size) {
+        super(x,y);
+        this.size = size;
+        System.out.println("New square!");
+    }
+
+    public Square(int size) {
+        super();
+        this.size = size;
+        System.out.println("New square!");
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+
+    public int square() {
         return size * size;
     }
 
-//    void resize(float coef) {
-//        size *= coef;
-//        this.yPosition = 434;
-////        xPosition += xPosition*coef;
-//        setxPosition((int) (getxPosition() * coef));
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (!super.equals(o)) {
+            return false;
+        }
+
+        return this.size == ((Square)o).size;
+    }
+
+    @Override
+    public String toString() {
+        return "Square{" +
+                "size=" + size +
+                "} " + super.toString();
+    }
 }

@@ -1,34 +1,30 @@
 package com.company.main;
 
-import com.company.Coordinate;
 import com.company.Figure;
-import com.company.Rectangle;
 import com.company.Square;
+
+import java.util.regex.Pattern;
 
 public class FigureMain {
     public static void main(String[] args) {
+        final int xx = 132;
 
-        Square s1 = new Square();
-        Figure s2 = s1;
+        Square s1 = new Square(0,0,15);
+        Figure s2 = new Square(18);
 
-        int someX = 123;
+        s1.setyPosition(234);
 
-        Coordinate coord = new Coordinate();
-        coord.xPosition = 123;
-        coord.yPosition = 123;
-        s1.setCoordinate(coord);
+        int x = 0;
+        Figure s3 = null;
 
-        System.out.println(coord.yPosition);
+//        Square.doSmth();
+//        Figure.doSmth();
+//        System.out.println(Figure.counter);
+//        System.out.println(s1 == s2);
+//        System.out.println(s1.equals(s2));
 
-        s1.setxPosition(someX);
-        s1.setyPosition(1);
-//        s1.setCustomY(3);
+        System.out.println(s1);
 
-
-        System.out.println(s2.getxPosition());
-        System.out.println(s2.getyPosition());
-        System.out.println(someX);
-        Figure r = new Rectangle();
-
+//        Pattern pattern = Pattern.compile("[+?d]{10}");
     }
 }
