@@ -1,6 +1,6 @@
 package com.company;
 
-public abstract class Figure extends Object {
+public abstract class Figure extends Object implements IFigure {
 
     public static int counter = 0;
     public static final int defaultX = 0;
@@ -27,23 +27,25 @@ public abstract class Figure extends Object {
         System.out.println("It's done...");
     }
 
+    @Override
     public int getxPosition() {
         return this.xPosition;
     }
 
+    @Override
     public void setxPosition(int x) {
         xPosition = x;
     }
 
+    @Override
     public int getyPosition() {
         return this.yPosition;
     }
 
+    @Override
     public void setyPosition(int yPosition) {
         this.yPosition = yPosition;
     }
-
-    abstract int square();
 
     @Override
     public boolean equals(final Object o) {
