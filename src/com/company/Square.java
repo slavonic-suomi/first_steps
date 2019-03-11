@@ -1,6 +1,6 @@
 package com.company;
 
-public class Square extends Figure {
+public class Square extends Figure implements Comparable<Square> {
 
     public static void doSmth() {
         System.out.println("it's static square!");
@@ -47,5 +47,10 @@ public class Square extends Figure {
         return "Square{" +
                 "size=" + size +
                 "} " + super.toString();
+    }
+
+    @Override
+    public int compareTo(Square o) {
+        return Integer.compare(o.size, this.size);
     }
 }
