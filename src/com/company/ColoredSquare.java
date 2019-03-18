@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class ColoredSquare
         extends Square
-        implements ColoredFigure, Comparable<ColoredSquare> {
+        implements ColoredFigure{
 
     private Color color;
 
@@ -26,11 +26,5 @@ public class ColoredSquare
         this.color = color;
     }
 
-    @Override
-    public int compareTo(ColoredSquare o) {
-        int size1 = getSize();
-        int size2 = o.getSize();
 
-        return Integer.compare(size1, size2);
-    }
 }
