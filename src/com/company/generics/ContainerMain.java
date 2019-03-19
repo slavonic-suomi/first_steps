@@ -20,8 +20,9 @@ public class ContainerMain {
         boolean laptopInLaptops = exists2(laptops, laptop); //allow only same types
 
         copy1(laptops, products); // copy Container<Laptop> laptops into Container<Product> or Container<Object>
-        copy2(laptops, laptops);  // copy  Container<Laptop> only into Container<Laptop>
 
+        ArrayContainer<Laptop> target = new ArrayContainer<>();
+        copy2(laptops, target);  // copy  Container<Laptop> only into Container<Laptop>
     }
 
     public static boolean exists1(
