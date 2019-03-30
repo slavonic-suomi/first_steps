@@ -1,7 +1,12 @@
 package com.company.generics.model;
 
 public class Phone extends Product<Phone> {
+
+    private long serialVersionUID = 123;
+
     private int display;
+    private int someVar;
+    private int someVar1;
 
     public int getDisplay() {
         return display;

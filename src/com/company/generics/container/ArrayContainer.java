@@ -1,14 +1,18 @@
 package com.company.generics.container;
 
+import java.util.AbstractCollection;
 import java.util.Arrays;
+import java.util.Iterator;
 
-public class ArrayContainer<T> implements Container<T> {
+public class ArrayContainer<T>
+        extends AbstractCollection<T>
+        implements Container<T> {
 
     private T[] array = (T[]) new Object[10];
     private int count = 0;
 
     @Override
-    public void add(T element) {
+    public boolean add(T element) {
         if (count == array.length) {
             int newSize = (int) (array.length * 1.5) + 1;
             T[] newArray = (T[]) new Object[newSize];
@@ -20,6 +24,7 @@ public class ArrayContainer<T> implements Container<T> {
         }
         array[count] = element;
         count++;
+        return true;
     }
 
 
@@ -40,6 +45,23 @@ public class ArrayContainer<T> implements Container<T> {
 
         }
 
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
+            private int cursor = 0;
+
+            @Override
+            public boolean hasNext() {
+                return cursor < count;
+            }
+
+            @Override
+            public T next() {
+                return get(cursor++);
+            }
+        };
     }
 
     @Override

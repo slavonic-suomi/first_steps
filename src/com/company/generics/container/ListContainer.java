@@ -1,13 +1,18 @@
 package com.company.generics.container;
 
 
-public class ListContainer<T> implements Container<T> {
+import java.util.AbstractCollection;
+import java.util.Iterator;
+
+public class ListContainer<T>
+        extends AbstractCollection<T>
+        implements Container<T> {
 
     private int count = 0;
     private Node<T> head;
 
     @Override
-    public void add(T element) {
+    public boolean add(T element) {
         Node<T> node = new Node<>();
         node.element = element;
 
@@ -19,6 +24,7 @@ public class ListContainer<T> implements Container<T> {
         }
 
         count++;
+        return true;
 
     }
 
@@ -26,7 +32,7 @@ public class ListContainer<T> implements Container<T> {
     public T get(int index) {
         int count = 0;
         Node<T> node = head;
-        while (count < index) {
+        while (count < this.count - index - 1 ) {
             node = node.next;
             count++;
         }
@@ -71,5 +77,20 @@ public class ListContainer<T> implements Container<T> {
         }
     }
 
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
+            private int cursor = 0;
 
+            @Override
+            public boolean hasNext() {
+                return cursor < count;
+            }
+
+            @Override
+            public T next() {
+                return get(cursor++);
+            }
+        };
+    }
 }

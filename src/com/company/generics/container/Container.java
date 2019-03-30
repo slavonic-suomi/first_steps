@@ -1,8 +1,10 @@
 package com.company.generics.container;
 
-public interface Container<T> {
+import java.util.Collection;
 
-    void add(T element);
+public interface Container<T> extends Collection<T> {
+
+    boolean add(T element);
 
     T get(int index);
 

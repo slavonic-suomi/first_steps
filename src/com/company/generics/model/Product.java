@@ -1,7 +1,11 @@
 package com.company.generics.model;
 
-public abstract class Product<T extends Product<T>> implements Comparable<T>{
-    private int price;
+import java.io.Serializable;
+
+public abstract class Product<T extends Product<T>>
+        implements Comparable<T>, Serializable {
+
+    transient private int price;
 
     public int getPrice() {
         return price;
