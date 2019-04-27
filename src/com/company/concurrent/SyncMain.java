@@ -10,11 +10,11 @@ public class SyncMain {
     private static List<Integer> list = new ArrayList<>();
     private static Object stub = new Object();
 
-    public static  void doSmth() {
-        synchronized (SyncMain.class) {
-
-        }
-    }
+//    public static  void doSmth() {
+//        synchronized (SyncMain.class) {
+//
+//        }
+//    }
 
     public static void main(String[] args) {
         ExecutorService executor = Executors.newCachedThreadPool();
