@@ -12,8 +12,6 @@ public class StreamApiMain {
         List<Integer> list = Arrays.asList(1,2,6,7,3,4,5);
 
         String s1 = list.stream()
-                .parallel()
-                .sequential()
                 .filter(i -> i > 2)
                 .sorted(Comparator.reverseOrder())
                 .map(i -> "and " + i)
