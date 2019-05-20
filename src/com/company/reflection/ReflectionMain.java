@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 public class ReflectionMain {
     public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NoSuchFieldException {
-        Class<? extends User> clz = User.class;
+        Class<? extends IUser> clz = User.class;
 
 //        Class<?> clz1 = Class.forName("com.company.reflection.User");
 
@@ -17,22 +17,22 @@ public class ReflectionMain {
 //                .forEach(System.out::println);
 
 
-        User user = new User();
-        user.setName("Ivan");
+        IUser IUser = new User();
+        IUser.setName("Ivan");
 
 //        user.getName()
         Method getter = clz.getMethod("getName");
-        Object getResult = getter.invoke(user);
+        Object getResult = getter.invoke(IUser);
 
         System.out.println(getResult);
 
         Method setMethod =
                 clz.getMethod("setName", String.class);
 
-        Object setResult = setMethod.invoke(user, "John");
+        Object setResult = setMethod.invoke(IUser, "John");
         System.out.println(setResult);
 
-        System.out.println(user.getName());
+        System.out.println(IUser.getName());
 
 //        clz.getConstructor()
         Field[] fields = clz.getFields();
@@ -43,9 +43,9 @@ public class ReflectionMain {
         Field ageField = clz.getDeclaredField("age");
 
         nameField.setAccessible(true);
-        nameField.set(user, "Tom");
+        nameField.set(IUser, "Tom");
 
-        System.out.println(user.getName());
+        System.out.println(IUser.getName());
 
 
     }

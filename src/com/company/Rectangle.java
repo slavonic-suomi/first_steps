@@ -5,7 +5,7 @@ public class Rectangle extends Figure {
     int sizeA = 2;
     int sizeB = 2;
 
-//    @Override
+    @Override
     public int square() {
         return sizeA * sizeB;
     }
